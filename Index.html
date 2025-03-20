@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bunny Love Animation</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #ffebf0;
+    }
+
+    #bunny {
+      width: 150px;
+      position: absolute;
+      bottom: 0;
+      left: -200px;
+      animation: hop 4s ease-in-out forwards;
+    }
+
+    #message {
+      font-family: Arial, sans-serif;
+      font-size: 2rem;
+      color: #ff1493;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s 4s forwards;
+    }
+
+    #heart {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      clip-path: path('M50 15 C20 -20, -20 40, 50 95 C120 40, 80 -20, 50 15 Z');
+      position: absolute;
+      bottom: 150px;
+      left: calc(50% - 50px);
+      transform: scale(0);
+      animation: popHeart 1s 6s forwards;
+    }
+
+    @keyframes hop {
+      0% { left: -200px; }
+      100% { left: calc(50% - 75px); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes popHeart {
+      0% { transform: scale(0); }
+      70% { transform: scale(1.5); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <img id="bunny" src="https://upload.wikimedia.org/wikipedia/commons/7/70/Bunny.svg" alt="Bunny" />
+  <div id="message">Hi Beautiful, Love You!</div>
+  <div id="heart"></div>
+
+  <script>
+    setTimeout(() => {
+      const bunny = document.getElementById('bunny');
+      bunny.src = 'https://upload.wikimedia.org/wikipedia/commons/5/53/Cartoon_Explosion.png';
+    }, 6000);
+  </script>
+</body>
+</html>
